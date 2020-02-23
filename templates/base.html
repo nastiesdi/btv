@@ -1,0 +1,61 @@
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>btv777</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+</head>
+<body>
+<nav>
+    <div class="container nav-wrapper">
+        <a href="/" class="brand-logo"> Btv777</a>
+        <ul id="nav-mobile" class="right">
+            <li><a href="/">Main</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <h1 style="text-align: center"> Some text which describe our site</h1>'
+    <form action="{% url 'new_search'%}" method="post">
+        {% csrf_token %}
+        <input type="text" name="search" placeholder="search" >
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+    </form>
+    <div class="row">
+    <!--    size of row(s4)-->
+        <div class="col s4">
+            <div class="center">
+                <i class="large material-icons" style="color: #EE6E73;">local_shipping</i>
+                <p>Watch what happen???</p>
+                <p class="light center">Here i add LIGHT CENTER</p>
+            </div>
+        </div>
+            <div class="col s4">
+            <div class="center">
+                <i class="large material-icons" style="color: #EE6E73;">attach_money</i>
+                <p>For buying</p>
+                <p class="light center">You have to send a feedback</p>
+            </div>
+        </div>
+            <div class="col s4">
+            <div class="center">
+                <i class="large material-icons" style="color: #EE6E73;">location_on</i>
+                <p>part3</p>
+                <p class="light center">Something else</p>
+            </div>
+        </div>
+    </div>
+    {% block content %}
+
+    {% endblock content%}
+</div>
+</body>
+</html>
