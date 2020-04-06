@@ -3,46 +3,25 @@
 {% block content %}
 
 <h2 style="text-align: center">{{search|title}}</h2>
+
 <div class="row">
-        <div class="col s4">
+        {% for post in summary %}
+            <div class="col s4">
                 <div class="card">
                     <div class="card-image">
-                            <a href="/"><img src="/" alt=""></a>
+                            <a href="{{post.1}}"><img src={{post.3}} alt=""></a>
                     </div>
                     <div class="card-content">
-                        <p>TEST</p>
+                        <p>{{post.0}}</p>
                     </div>
                     <div clss="card-action">
-                        <a href="/"> View listing: Price TEST</a>
+                        <a href="{{post.1}}"> View listing: Price {{post.2}}</a>
                     </div>
                 </div>
-        </div>
-        <div class="col s4">
-                <div class="card">
-                    <div class="card-image">
-                            <a href="/"><img src="https://avatars.mds.yandex.net/get-pdb/1645430/4e0ed674-f22d-4e0a-b3e6-323ab87adb38/s1200" alt=""></a>
-                    </div>
-                    <div class="card-content">
-                        <p>TEST</p>
-                    </div>
-                    <div clss="card-action">
-                        <a href="/"> View listing: Price TEST</a>
-                    </div>
-                </div>
-        </div>
-                <div class="col s4">
-                <div class="card">
-                    <div class="card-image">
-                            <a href="/"><img src="/" alt=""></a>
-                    </div>
-                    <div class="card-content">
-                        <p>TEST</p>
-                    </div>
-                    <div clss="card-action">
-                        <a href="/"> View listing: Price TEST</a>
-                    </div>
-                </div>
-        </div>
-</div>
+            </div>
+        {% endfor %}
+    </div>
+
+
 
 {% endblock content %}
