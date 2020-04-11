@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 style="text-align: center">{{search|title}}</h2>
+
+<div class="row">
+        {% for post in summary %}
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-image">
+                            <a href="E:/site/btv/static/images/1.jpg"><img src="/static/images/{{post.0}}" alt="djhj"></a>
+                    </div>
+                    <div class="card-content">
+                        <p>{{post.2}}</p>
+                    </div>
+                    <div clss="card-action">
+                        <a href="{{post.1}}"> View listing: Price {{post.2}}</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+
+{% endblock content %}

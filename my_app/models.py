@@ -15,15 +15,16 @@ class Search(models.Model):
         verbose_name_plural = 'Searches'
 
 
-class Tv(models.Model):
+class Products(models.Model):
     idd=models.IntegerField()
     name = models.CharField(max_length=500)
     model = models.CharField(max_length=500)
     url = models.CharField(max_length=500)
+    image = models.ImageField(blank=True, upload_to='e')
     description = models.CharField(max_length=500)
 
     def __str__(self):
-        return '{}'.format(self.name)
+        return '{} {}'.format(self.name, self.model)
 
     def load_tv(self, file):
         with open(file, 'r') as infile:

@@ -1,7 +1,7 @@
 
 {% load static %}
 
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>btv777</title>
@@ -10,52 +10,69 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-<nav>
-    <div class="container nav-wrapper">
-        <a href="/" class="brand-logo"> Btv777</a>
-        <ul id="nav-mobile" class="right">
-            <li><a href="/">Main</a></li>
-        </ul>
-    </div>
-</nav>
 <div class="container">
-    <h1 style="text-align: center"> Some text which describe our site</h1>'
-    <form action="{% url 'new_search'%}" method="post">
-        {% csrf_token %}
-        <input type="text" name="search" placeholder="search" >
-          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-          <i class="material-icons right">send</i>
-        </button>
-    </form>
-    <div class="row">
-    <!--    size of row(s4)-->
-        <div class="col s4">
-            <div class="center">
-                <i class="large material-icons" style="color: #EE6E73;">local_shipping</i>
-                <p>Watch what happen???</p>
-                <p class="light center">Here i add LIGHT CENTER</p>
-            </div>
-        </div>
-            <div class="col s4">
-            <div class="center">
-                <i class="large material-icons" style="color: #EE6E73;">attach_money</i>
-                <p>For buying</p>
-                <p class="light center">You have to send a feedback</p>
-            </div>
-        </div>
-            <div class="col s4">
-            <div class="center">
-                <i class="large material-icons" style="color: #EE6E73;">location_on</i>
-                <p>part3</p>
-                <p class="light center">Something else</p>
+    <div class="wrap_main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 dostavka">
+                    <p><i class="glyphicon glyphicon-plane"></i>
+                    <span class = "dost_text">Бесплатная доставка </span>  при заказе свыше <span class = "dost_price">500р. </span> </p>
+                </div>
             </div>
         </div>
     </div>
-    {% block content %}
+    <div class="first_container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 logo">
+                    <p style="font-size: 100%;">
+                        <a href="/"><img src="/static/images/logo.png" width="60%" align="center" margin-right="20px" ></a>
+                    </p>
+                 </div>
+                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                    <ul class="menu-main">
+                      <li><a href="" class="current">Главная</a></li>
+                      <li><a href="/catalog">Каталог</a></li>
+                      <li><a href="/payment">Оплата</a></li>
+                      <li><a href="/contacts">Контакты</a></li>
+                    </ul>
+                    <div class="search">
+                        <form action="{% url 'new_search'%}" method="post">
+                            {% csrf_token %}
+                            <input type="text" name="search" placeholder="Поиск товара" >
+                            <button class="btn " type="submit" name="">
+                            <i class="material-icons">search</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 left_block">
+                <ul class="left_menu">
+                    <h3>Каталог</h3>
+                    <li><a href="/catalog/stove">Варочные панели</a></li>
+                    <li><a href="/catalog/hods">Вытяжки</a></li>
+                    <li><a href="/catalog/ovens">Духовые шкафы</a></li>
+                    <li><a href="/catalog/microwaves">Микроволновые печи</a></li>
+                    <li><a href="/catalog/dishwashers">Посудомоечные машины</a></li>
+                    <li><a href="/catalog/refrigerators">Холодильники</a></li>
+                    <li><a href="/catalog/washer">Стиральные машины</a></li>
+                    <li><a href="/catalog/tv">Теливизоры</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 left_block">
+                {% block content %}
 
-    {% endblock content%}
+                {% endblock content%}
+            </div>
+
+        </div>
 </div>
 </body>
 </html>
