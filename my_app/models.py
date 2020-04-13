@@ -22,6 +22,7 @@ class Products(models.Model):
     url = models.CharField(max_length=500)
     image = models.ImageField(blank=True, upload_to='e')
     description = models.CharField(max_length=500)
+    price = models.DecimalField(max_digits=15, decimal_places=2, default=150.00)
 
     def __str__(self):
         return '{} {}'.format(self.name, self.model)

@@ -1,9 +1,60 @@
+.row{
+    flex-wrap: wrap;
+     margin-right: 0px!important;
+     margin-left: 0px!important;
+}
+.banner img{
+    max-width: 100%;
+    height: auto;
+    margin-top:10px;
+}
+.main-color{
+    background-color:#feb386!important;
+}
+
+
+.wrap_main{
+    background-color:#606060;
+}
+
+.btn-primary.form-button {
+background-color:#9d999d!important;
+border-color:#9d999d;
+}
+
+input[placeholder]{
+    text-overflow:ellipsis;
+    font-size:12px!important;
+}
+
+.forms label{
+    font-size:18px!important;
+}
+
+.btn-primary.form-button:hover{
+border-color:#606060;
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]){
+    border-bottom: 2px solid #feb386!important;
+}
+input[type=text] {
+    height: 90%!important;
+}
+.btn:focus, .btn:hover {
+    background-color:#feb386!important;
+}
+input:focus {
+    border-bottom:none!important;
+
+}
+border-bottom:
 .a {
 color: red;
 }
 .card {
-    height: 300px;
-    overflow: hidden:
+    height: 200px;
+    overflow: hidden;
     }
 
 .card-image {
@@ -13,29 +64,42 @@ color: red;
  .first_container{
  max-height: 100px;
  }
+.high-row{
+    margin-top:10px!important;
+    margin-bottom:0px!important;
+}
 
+.img{
+    text-align: center;
+}
+
+.main_block{
+margin-right:20px!important;
+margin-right:20px!import;
+}
+
+.logo img{
+    text-align: center;
+    padding-left: 35px;
+}
 .btn.focus, .btn:focus{
 }
 
+.card-image.product a img {
+	position: relative;
+	padding: 7%;
+	overflow: hidden;
+}
+
 .dostavka p{
-	color:#777777;
+	color:#606060;
 	font-family: 'Ubuntu Condensed', sans-serif;
 	font-size: 15px;
 	text-align: center;
 	margin:10px 0;
 }
 .dostavka .dost_text{
-	color:#606060;
-}
-.time p span
-{
-	color: #A52A2A;
-}
-.dostavka .dost_price{
-	color:#A52A2A;
-}
-.dostavka i {
-	color:#A52A2A;
+	color:white;
 }
 
 div .search {
@@ -44,13 +108,12 @@ div .search {
  	background-color: transparent;
  	border:0;
  	display: inline-block;
- 	padding: 10px 95px 11px 13px;
+ 	/*padding: 10px 95px 11px 13px;*/
 }
 
 .search form button{
 	position: absolute;;
-	bottom: -1px;
-	/*color: white;*/
+	bottom: 9px;
 	right: 0px;
     height:100%;
 }
@@ -75,7 +138,7 @@ div .search {
   font-family: 'Ubuntu Condensed', sans-serif;
   letter-spacing: 2px;
   position: relative;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   margin: 0 34px 0 30px;
   font-size: 16px;
   text-transform: uppercase;
@@ -83,7 +146,7 @@ div .search {
   transition: color .2s;
 }
 .menu-main a, .menu-main a:visited {color: #9d999d;}
-.menu-main a.current, .menu-main a:hover{color: #feb386;}
+.menu-main a.current, .menu-main a:hover, .menu-main a:active {color: #feb386;}
 .menu-main a:before,
 .menu-main a:after {
   content: "";
@@ -111,7 +174,7 @@ div .search {
 ul.left_menu {
 	background:#D3D3D3 linear-gradient(to bottom, 	#606060 13%, #ffffff 0%) repeat scroll 0 0;
 	border: 1px solid #d0cfcf;
-    border-radius: 3 px;
+    border-radius: 3px;
     margin-top: 10px;
     padding: 16px 10px 16px 0px;
 }
@@ -139,7 +202,7 @@ ul.left_menu >li>a{
   text-transform: uppercase;
 }
 
-ul.left_menu >li>a:hover{
+ul.left_menu >li>a:hover, ul.left_menu a.current{
 	color:#feb386;
 	bacground : transparent;
 }
@@ -155,5 +218,24 @@ ul.left_menu li.active a{
 
 .search{
 	padding-bottom: 15px;
+}
+
+div.forms {
+	/*background:#D3D3D3 linear-gradient(to bottom, 	#606060 13%, #ffffff 0%) repeat scroll 0 0;*/
+	border: 1px solid #d0cfcf;
+    font-weight:700;
+    padding: 16px 10px 16px 0px;
+
+}
+
+h4.name-form{
+    font-family: 'Ubuntu Condensed', sans-serif;
+    border-radius: 5px 10px 0 0;
+    color: #606060;
+    text-transform: uppercase;
+}
+
+form.p-3 {
+    padding: 8px!important;
 }
 

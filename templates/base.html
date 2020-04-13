@@ -13,66 +13,125 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
-    <div class="wrap_main">
-        <div class="container">
-            <div class="row">
+    <div class=".container-fluid main-block">
+        <div class=".container-fluid wrap_main">
+            <div class="row header">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 dostavka">
                     <p><i class="glyphicon glyphicon-plane"></i>
-                    <span class = "dost_text">Бесплатная доставка </span>  при заказе свыше <span class = "dost_price">500р. </span> </p>
+                    <span class = "dost_text">Бесплатная доставка  при заказе свыше 500р. </span> </p>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="first_container">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 logo">
+            <div class="row high-row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 logo">
                     <p style="font-size: 100%;">
-                        <a href="/"><img src="/static/images/logo.png" width="60%" align="center" margin-right="20px" ></a>
+                        <a href="/"><img src="/static/images/logo.png" width="80%" align="center" ></a>
                     </p>
-                 </div>
-                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-                    <ul class="menu-main">
-                      <li><a href="" class="current">Главная</a></li>
-                      <li><a href="/catalog">Каталог</a></li>
-                      <li><a href="/payment">Оплата</a></li>
-                      <li><a href="/contacts">Контакты</a></li>
-                    </ul>
-                    <div class="search">
-                        <form action="{% url 'new_search'%}" method="post">
-                            {% csrf_token %}
-                            <input type="text" name="search" placeholder="Поиск товара" >
-                            <button class="btn " type="submit" name="">
-                            <i class="material-icons">search</i>
-                            </button>
-                        </form>
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 my_block">
+                     <ul class="menu-main" id="menu-main">
+                          <li ><a href='/main' {% if request.path == '/main' %}class="current"{%endif %}>Главная</a></li>
+                          <li><a href="/catalog" {% if "/catalog" in request.path %}class="current"{%endif %}>Каталог</a></li>
+                          <li><a href='/payment' {% if request.path == '/payment' %}class="current"{%endif %}>Оплата</a></li>
+                          <li><a href="/contacts" {% if request.path == '/contacts' %}class="current"{%endif %}>Контакты</a></li>
+                        </ul>
+                        <div class="search">
+                            <form action="{% url 'search'%}" method="post">
+                                {% csrf_token %}
+                                <input type="text" name="search" placeholder="Поиск товара" >
+                                <button class="btn " type="submit" name="">
+                                <i class="material-icons">search</i>
+                                </button>
+                            </form>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 left_block">
-                <ul class="left_menu">
-                    <h3>Каталог</h3>
-                    <li><a href="/catalog/stove">Варочные панели</a></li>
-                    <li><a href="/catalog/hods">Вытяжки</a></li>
-                    <li><a href="/catalog/ovens">Духовые шкафы</a></li>
-                    <li><a href="/catalog/microwaves">Микроволновые печи</a></li>
-                    <li><a href="/catalog/dishwashers">Посудомоечные машины</a></li>
-                    <li><a href="/catalog/refrigerators">Холодильники</a></li>
-                    <li><a href="/catalog/washer">Стиральные машины</a></li>
-                    <li><a href="/catalog/tv">Теливизоры</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 left_block">
-                {% block content %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 left_block">
+                    <ul class="left_menu">
+                        <h3>Каталог</h3>
+                        <li><a href="/catalog/stove" {% if "/catalog/stove" in request.path %}class="current"{%endif %}>Варочные панели</a></li>
+                        <li><a href="/catalog/hods" {% if "/catalog/hods" in request.path %}class="current"{%endif %}>Вытяжки</a></li>
+                        <li><a href="/catalog/ovens" {% if "/catalog/ovens" in request.path %}class="current"{%endif %}>Духовые шкафы</a></li>
+                        <li><a href="/catalog/microwaves" {% if "/catalog/microwaves" in request.path %}class="current"{%endif %}>Микроволновые печи</a></li>
+                        <li><a href="/catalog/dishwashers" {% if "/catalog/dishwashers" in request.path %}class="current"{%endif %}>Посудомоечные машины</a></li>
+                        <li><a href="/catalog/refrigerators" {% if "/catalog/refrigerators" in request.path %}class="current"{%endif %}>Холодильники</a></li>
+                        <li><a href="/catalog/washer" {% if "/catalog/washer" in request.path %}class="current"{%endif %}>Стиральные машины</a></li>
+                        <li><a href="/catalog/tv" {% if "/catalog/tv" in request.path %}class="current"{%endif %}>Телевизоры</a></li>
+                    </ul>
+                    <div class="col-lg-12 mt-3 p-3 rounded forms">
+                        <h4 class="name-form">Оставить заявку</h4>
+                        <form class='p-3' action="{% url 'feedback' %}" method="POST">
+                            {% csrf_token %}
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Email*</label>
+                                <input name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите ваш Email">
+                                <small id="emailHelp" class="form-text text-muted">Введите ваш Email</small>
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputNumber">Номер телефона*</label>
+                                <input name="phone" class="form-control" id="exampleInputNumber" aria-describedby="emailHelp" placeholder="Введите ваш номер телефона">
+                                <small id="numberHelp" class="form-text text-muted">Введите ваш номер телефона для обратной связи</small>
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleNameNumber">Имя</label>
+                                <input name="name" class="form-control" id="exampleNameNumber" aria-describedby="emailHelp" placeholder="Необязательно">
+                                <small id="nameHelp" class="form-text text-muted">Введите ваше имя</small>
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputDescription">Описание</label>
+                                <input name="description" class="form-control" id="exampleInputDescription" aria-describedby="emailHelp" placeholder="Необязательно">
+                                <small id="descriptionHelp" class="form-text text-muted">Укажите интересующий вас товар</small>
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputTime">Описание</label>
+                                <input name="call_time" class="form-control" id="exampleInputTime" aria-describedby="emailHelp" placeholder="Необязательно">
+                                <small id="timeHelp" class="form-text text-muted">Укажите удобное время для звонка</small>
+                              </div>
+                              <button type="submit" class="btn btn-primary form-button">Перезвонить</button>
+                              <h5 class="wrog_fields red">{% if "/wrong_field" in request.path %} Проверте введенные данные{%endif %}</h5>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 my_block">
+                    {% block content %}
 
-                {% endblock content%}
+                    {% endblock content%}
+                </div>
             </div>
-
         </div>
-</div>
+        <div class=".container-fluid wrap_main">
+                    <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
+        </div>
+    </div>
 </body>
 </html>

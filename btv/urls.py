@@ -19,5 +19,7 @@ from my_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('feedback/', include('feedback.urls')),
     path('', include('my_app.urls')),
+
 ]

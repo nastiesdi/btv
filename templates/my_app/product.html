@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+{% product %}
+    <!-- секция меню -->
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class='nav-link active' data-toggle="tab" href="#cat1">{{product.0}}</a>
+
+      </li>
+      <li class="nav-item">
+        <a class='nav-link' data-toggle="tab" href="#cat2">Харктеристики</a>
+      </li>
+    </ul>
+
+    <!-- секция вкладок -->
+    <div class="tab-content">
+      <!-- контент первой категории -->
+      <div id="cat1" class="tab-pane fade show active">
+        Контент первой категории
+      </div>
+      <!-- контент второй категории -->
+      <div id="cat2" class="tab-pane fade">
+        Контент второй категории
+      </div>
+    </div>
+{% end %}
+</div>
+
+
+{% endblock content %}
