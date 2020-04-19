@@ -1,0 +1,9 @@
+<div class="search">
+    <form action="{% url 'search'%}" method="post">
+        {% csrf_token %}
+        <input type="text" name="search" placeholder="Поиск товара" >
+        <button class="btn " type="submit" name="">
+        <i class="material-icons">search</i>
+        </button>
+    </form>
+</div>

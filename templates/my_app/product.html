@@ -2,31 +2,23 @@
 
 {% block content %}
 
-<div class="container">
-{% product %}
-    <!-- секция меню -->
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class='nav-link active' data-toggle="tab" href="#cat1">{{product.0}}</a>
-
-      </li>
-      <li class="nav-item">
-        <a class='nav-link' data-toggle="tab" href="#cat2">Харктеристики</a>
-      </li>
-    </ul>
-
-    <!-- секция вкладок -->
-    <div class="tab-content">
-      <!-- контент первой категории -->
-      <div id="cat1" class="tab-pane fade show active">
-        Контент первой категории
-      </div>
-      <!-- контент второй категории -->
-      <div id="cat2" class="tab-pane fade">
-        Контент второй категории
-      </div>
+<div class="container ">
+    <h3 class="main-text">{{product.name}}</h3>
+    <div class="col-sm-12">
+        <div class="card my-product">
+            <div class="row d-inline-flex ">
+                <div class="col-sm-4">
+                    <div class="card-image product">
+                            <a href="/static/images/{{product.img}}"><img src="/static/images/{{product.img}}" alt="{{product.name}}"></a>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <h3 class="model main-text"><small>Модель {{product.model}}</small></h3>
+                    <h5 class="main-text"><small><small> Описание: {{product.description}}</small></small></h5>
+                </div>
+            </div>
+        </div>
     </div>
-{% end %}
 </div>
 
 

@@ -1,0 +1,6 @@
+<ul class="menu-main" id="menu-main">
+  <li ><a href='/main' {% if request.path == '/main' %}class="current"{%endif %}>Главная</a></li>
+  <li><a href="/catalog" {% if "/catalog" in request.path %}class="current"{%endif %}>Каталог</a></li>
+  <li><a href='/payment' {% if request.path == '/payment' %}class="current"{%endif %}>Оплата</a></li>
+  <li><a href="/contacts" {% if request.path == '/contacts' %}class="current"{%endif %}>Контакты</a></li>
+</ul>

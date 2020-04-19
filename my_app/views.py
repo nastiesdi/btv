@@ -41,8 +41,18 @@ def catalog(request):
     stuff_for_frontend = {'summary': final_postings}
     return render(request, 'my_app/catalog.html', stuff_for_frontend )
 
-def product(request, product_id):
-    return render(request, 'my_app/product.html')
+
+def product(request, productid):
+    all_tv = Products.objects.all()
+    product=None
+    for each in all_tv:
+        if each.idd == int(productid):
+            product = {'img': f'{each.idd}.jpg', 'name': each.name, 'model': each.model, 'description': each.description, 'price': each.price, 'idd': each.idd}
+            break
+    stuff_for_frontend = {'product': product}
+    print(stuff_for_frontend)
+    return render(request, 'my_app/product.html', stuff_for_frontend)
+
 
 def list_product(request, product):
     product_dict = {'tv': 'телевизор', 'washer': 'стиральная машина', 'stove':'варочная панель', 'hods': 'вытяжка', 'microwaves': 'микроволновая печь', 'dishwashers': 'посудомоечная машина', 'refrigerators':'холодильник', 'ovens': 'духовой шкаф'}
@@ -50,10 +60,11 @@ def list_product(request, product):
     final_postings = []
     for each in all_tv:
         if each.name.lower().lstrip().rstrip() == product_dict[product]:
-            final_postings.append([f'{each.idd}.jpg', each.name, each.model, each.description, each.price])
+            final_postings.append([f'{each.idd}.jpg', each.name, each.model, each.description, each.price, each.idd])
     stuff_for_frontend = {
         'summary': final_postings}
     return render(request, 'my_app/catalog.html', stuff_for_frontend)
+
 
 def list_product_from_main(request):
     all_tv = Products.objects.all()
@@ -74,7 +85,7 @@ def search(request):
     final_postings = []
     all_tv = Products.objects.all()
     for each in all_tv:
-        if search.lower().lstrip().rstrip() in each.name.lower().lstrip().rstrip():
+        if search.lower().lstrip().rstrip() in each.name.lower().lstrip().rstrip() or search.lower().lstrip().rstrip() in each.model.lower().lstrip().rstrip():
             final_postings.append([f'{each.idd}.jpg', each.name, each.model, each.description, each.price])
     stuff_for_frontend = {
         'search': '',

@@ -12,6 +12,30 @@
     background-color:#feb386!important;
 }
 
+.grey-background{
+    background-color:#606060!important;
+}
+
+.my-product{
+height: auto!important;
+}
+
+.model{
+   text-align:right;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
+.main-text{
+  font-family: 'Ubuntu Condensed', sans-serif;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 10px;
+  margin: 10 34px 0 30px;
+}
+
+.main-text:first-letter {
+    font-size: 130%
+}
 
 .wrap_main{
     background-color:#606060;
