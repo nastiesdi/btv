@@ -1,9 +1,9 @@
-import requests
+# import requests
 from django.shortcuts import render
-from requests.compat import quote_plus
+# from requests.compat import quote_plus
 from .models import Search, Products
-from bs4 import BeautifulSoup
-# from . import models
+# from bs4 import BeautifulSoup
+from . import models
 import csv
 
 # Create your views here.
@@ -101,3 +101,5 @@ def new_search(request):
     #                                 description=line['description'])
     # Products.objects.all().delete()
     return render(request, 'base.html')
+
+

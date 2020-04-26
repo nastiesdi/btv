@@ -1,8 +1,32 @@
+@media (max-width: 1160px){
+    .container{
+        width:100%!important;
+    }
+    .col-4 {
+        width: 100%;
+        margin:0;
+    }
+}
+/* LOGO *************************************/
+.logo img{
+    text-align: center;
+    margin-top: 15px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
+.main-text{
+  font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+
+
+
 .row{
     flex-wrap: wrap;
      margin-right: 0px!important;
      margin-left: 0px!important;
-}
+     margin-bottom: 5px!important;
+}/*
 .banner img{
     max-width: 100%;
     height: auto;
@@ -36,21 +60,21 @@ height: auto!important;
 .main-text:first-letter {
     font-size: 130%
 }
-
+/*/
 .wrap_main{
     background-color:#606060;
 }
-
+/*
 .btn-primary.form-button {
 background-color:#9d999d!important;
 border-color:#9d999d;
-}
+}*/
 
 input[placeholder]{
     text-overflow:ellipsis;
     font-size:12px!important;
 }
-
+/*
 .forms label{
     font-size:18px!important;
 }
@@ -114,6 +138,12 @@ margin-right:20px!import;
 	padding: 7%;
 	overflow: hidden;
 }
+*/
+
+
+
+
+/*  Dostavka */
 
 .dostavka p{
 	color:#606060;
@@ -126,6 +156,9 @@ margin-right:20px!import;
 	color:white;
 }
 
+
+
+/* Search */
 div .search {
  	width: 100%;
  	height: 45px;
@@ -134,6 +167,11 @@ div .search {
  	display: inline-block;
  	/*padding: 10px 95px 11px 13px;*/
 }
+#search {
+height: 100%;
+}
+.search input{
+height:100%!important;}
 
 .search form button{
 	position: absolute;;
@@ -142,7 +180,20 @@ div .search {
     height:100%;
 }
 
+ .search form{
+	position: relative;
+}
 
+.search{
+	padding-bottom: 15px;
+}
+
+.search .btn i{
+line-height: 3pt!important;
+}
+
+
+/*Main menu*/
 
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
 .menu-main {
@@ -157,6 +208,7 @@ div .search {
   vertical-align:top;
 }
 .menu-main li:last-child:after {content: none;}
+.menu-main li:first-child a {margin-left: 0px;}
 .menu-main a {
   text-decoration: none;
   font-family: 'Ubuntu Condensed', sans-serif;
@@ -164,11 +216,12 @@ div .search {
   position: relative;
   padding-bottom: 10px;
   margin: 0 34px 0 30px;
-  font-size: 16px;
+  font-size: 20px;
   text-transform: uppercase;
   display: inline-block;
   transition: color .2s;
 }
+
 .menu-main a, .menu-main a:visited {color: #9d999d;}
 .menu-main a.current, .menu-main a:hover, .menu-main a:active {color: #feb386;}
 .menu-main a:before,
@@ -185,25 +238,22 @@ div .search {
 }
 .menu-main a:hover:before, .menu-main .current:before {left: 0;}
 .menu-main a:hover:after, .menu-main .current:after {right: 0;}
-@media (max-width: 550px) {
-.menu-main {padding-top: 0;}
-.menu-main li {display: block;}
-.menu-main li:after {content: none;}
-.menu-main a {
-  padding: 25px 0 20px;
-  margin: 0 30px;
-}
-}
 
-ul.left_menu {
-	background:#D3D3D3 linear-gradient(to bottom, 	#606060 13%, #ffffff 0%) repeat scroll 0 0;
+
+
+
+
+/*Left menu*/
+
+.left_menu {
+	background:#D3D3D3 linear-gradient(to bottom, 	#606060 12%, #ffffff 0%) repeat scroll 0 0;
 	border: 1px solid #d0cfcf;
     border-radius: 3px;
     margin-top: 10px;
     padding: 16px 10px 16px 0px;
 }
 
-ul.left_menu h3{
+.left_menu h3{
 
 	border-radius: 5px 10px 0 0;
 	color: #fff;
@@ -212,7 +262,7 @@ ul.left_menu h3{
 
 }
 
-ul.left_menu >li>a{
+.left_menu >li>a{
 	border-bottom: 1px solid #d0cfcf;
 	color: #6b6b6b;
 	display: block;
@@ -222,30 +272,57 @@ ul.left_menu >li>a{
   position: relative;
   padding-bottom: 10px;
   margin: 0 8px 0 8px;
-  font-size: 14px;
+  font-size: 17px;
   text-transform: uppercase;
 }
 
-ul.left_menu >li>a:hover, ul.left_menu a.current{
+.left_menu >li>a:hover, ul.left_menu a.current{
 	color:#feb386;
 	bacground : transparent;
 }
 
-ul.left_menu li.active a{
+.left_menu li.active a{
 	color:#800000;
-	bacground : transparent;
+	background : transparent;
 }
 
- .search form{
-	position: relative;
+button.btn.buy-all.feedback-button{
+    top: 80%;
+    left: 20%;
+}
+/* main page ///////////////////////////////////////*/
+button.btn.buy-all {
+    position: absolute;
+    top: 10%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 12px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-.search{
-	padding-bottom: 15px;
+button.btn.buy-all:hover  {
+  background-color: #feb386;
+  color:black;
 }
 
+.banner-text p{
+    position: absolute;
+    top: 8rem;
+    left: 5rem;
+    font-size:4rem;
+}
+
+
+/*Feebback form*/
+/*
 div.forms {
-	/*background:#D3D3D3 linear-gradient(to bottom, 	#606060 13%, #ffffff 0%) repeat scroll 0 0;*/
+	background:#D3D3D3 linear-gradient(to bottom, 	#606060 13%, #ffffff 0%) repeat scroll 0 0;
 	border: 1px solid #d0cfcf;
     font-weight:700;
     padding: 16px 10px 16px 0px;
@@ -262,4 +339,126 @@ h4.name-form{
 form.p-3 {
     padding: 8px!important;
 }
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1200px){
+    .menu-main a {
+      padding: 3px 0 5px;
+      margin-right: 20px;
+      font-size: 20px;
+    }
+
+    p{
+    font-size:1rem;}
+    .material-icons{
+    font-size:1.5rem;}
+    .banner-text p{
+    font-size:3rem;
+}
+}
+@media (max-width: 992px) {
+    .menu-main a {
+     font-size: 13px;
+    }
+    .search form button{
+    height: 80%;}
+    .search .btn{
+    padding-left:3%!important;}
+    .feedback{
+    display:none;}
+    .left_menu >li>a{
+    font-size: 10px;
+    }
+    .left_menu h3 {
+    font-size: 12px;
+    }
+    .left_menu {
+    background: #D3D3D3 linear-gradient(to bottom, #606060 9%, #ffffff 0%) repeat scroll 0 0;}
+     .material-icons{
+    font-size:1rem!important;}
+        .banner-text p{
+    font-size:2rem;
+}
+}
+
+@media (max-width: 768px) {
+    .main-text{
+        font-size: 10px;
+        }
+
+    .menu-main a {
+     font-size: 11px;
+     margin-right: 5px;
+     margin-left:5px;
+    }
+    div .search form{
+        height: 25px;
+    }
+
+    .search form button {
+    bottom: 0px;
+    height: 150%;
+    width: 13%;
+    }
+    .left_menu{
+    display: none;}
+
+}
+ @media (max-width: 576px) {
+    .menu-main a {
+     font-size: 9px;
+     margin-right: 5px;
+     margin-left:0px;
+     padding: 3px 0 2px
+    }
+    .menu-main li:after {content: none;}
+    div .search form {
+        height: 15px;
+    }
+    div .search {
+    height: 25px;}
+
+button.btn.buy-all {
+    font-size: 8px;
+    top: 20%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 8px;
+    padding: 6px 12px;
+}
+        .banner-text p{
+    font-size:1.6rem;
+    top: 5rem;
+}
+
+
+
+
+
+
 

@@ -1,9 +1,38 @@
-<div class="search">
-    <form action="{% url 'search'%}" method="post">
-        {% csrf_token %}
-        <input type="text" name="search" placeholder="Поиск товара" >
-        <button class="btn " type="submit" name="">
-        <i class="material-icons">search</i>
-        </button>
-    </form>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>contacts</title>
+  <style>
+.icon-text{
+vertical-align: super;
+display: inline;
+}
+.material-icons{
+font-size:2rem;}
+  </style>
+</head>
+<body>
+    <div class="search">
+        <form action="{% url 'search'%}" method="post">
+            {% csrf_token %}
+            <input type="text" name="search" placeholder="Поиск товара" >
+            <button class="btn " type="submit" name="">
+            <i class="material-icons">search</i>
+            </button>
+        </form>
+    </div>
+    <div class="row justify-content-between contact-info-under-search main-text">
+        <div class="col-auto  mr-auto">
+            <strong>Мы работаем:</strong> <br>с 9.00 до 21.00
+        </div>
+        <div class="col-auto">
+            <div class="_contact-info">
+                <div class="_item">  <i class="material-icons">phone</i> <p class="icon-text">+375 (29) 658 27 76</p></div>
+                <div class="_item">
+                    <i class="material-icons">email</i>  <p class="icon-text">irateh@mail.ru</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

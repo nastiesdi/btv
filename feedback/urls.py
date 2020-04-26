@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import FeedBackView
+from .views import post, FeedBackView
 
 urlpatterns = [
-    path('', FeedBackView.as_view(), name='feedback')
+    path('', post, name='new_feedback'),
+    path('', FeedBackView, name='feedback')
 ]

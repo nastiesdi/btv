@@ -8,40 +8,56 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+<!--    <script src="{% static 'js/javascript.js' %}"></script>-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
+<p id="text">Text</p>
+<button onclick="changeColor('blue');">Blue</button>
+<button onclick="changeColor('red');">Red</button>
+<script>
+    function changeColor(color){
+        var element = document.getElementById("text");
+        element.style.color = color;
+        console.log(color);
+        }
+</script>
 <body>
     <div class=".container-fluid main-block">
         {% include 'include/header.html' %}
         <div class="container">
-            <div class="row high-row">
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 logo">
+            <div class="row high-row ">
+                <div class="col-3 logo">
                     {% include 'include/logo.html' %}
                 </div>
-                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 my_block">
+                <div class=".col-12 col-sm-9 my_block">
+                    <div class=".col-12">
                      {% include 'include/main_menu.html' %}
-                     {% include 'include/search.html' %}
+                    </div>
+                    <div class=".col-12 ">
+                         {% include 'include/search.html' %}
                     </div>
                 </div>
             </div>
         </div>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 left_block">
+            <div class="row align-items-start">
+                <div class="col-0 col-md-3 left_block">
                         {% include 'include/left_menu.html' %}
-                    <div class="col-lg-12 mt-3 p-3 rounded forms">
+                    <div class="col-lg-12 mt-3 p-3 rounded forms feedback">
                        {% include 'include/feedback.html' %}
                     </div>
                 </div>
-                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 my_block">
+                <div class="col-12 col-md-9 my_block">
+                    {% include 'include/new_feedback.html' %}
                     {% block content %}
 
                     {% endblock content%}
                 </div>
             </div>
         </div>
-{% include 'include/footer.html' %}
+    </div>
+<!--{% include 'include/footer.html' %}-->
 </body>
 </html>

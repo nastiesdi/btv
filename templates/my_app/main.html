@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
 <div id="carousel" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner banner">
     <div class="item active">
-      <img src="/static/images/banner.jpg" alt="...">
+      <img src="/static/images/kitchen.jpg" alt="...">
+      <div class="banner-text"><p><Strong>Бытовая техника для дома</Strong></p></div>
+      <form action="{% url 'catalog'%}" method="get">
+      <button type="submit"  class="btn buy-all">Хочу скупить всё!</button>
+      </form>
+      <button type="submit"  class="btn buy-all feedback-button">Оставить заявку</button>
     </div>
   </div>
 </div>
+
 
 {% endblock content %}

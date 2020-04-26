@@ -14,3 +14,12 @@ class FeedBackView(View):
             return redirect('/wrong_field')
 
 # Create your views here.
+def post(request):
+    print('heeeere')
+    form = FeedBackForm(request.POST)
+    if form.is_valid():
+        print(form)
+        form.save()
+        return redirect('/')
+    else:
+        return redirect('/wrong_field')
