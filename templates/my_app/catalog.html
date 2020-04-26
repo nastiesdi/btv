@@ -1,46 +1,10 @@
-
-{% extends 'base.html' %}
-
-{% block content %}
-
-<h2 style="text-align: center">{{search|title}}</h2>
-
-<div class="row">
-        {% for product in summary %}
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="row d-inline-flex ">
-                        <div class="col-sm-4">
-                            <div class="card-image product">
-                                    <a href="/static/images/{{product.0}}"><img src="/static/images/{{product.0}}" alt="{{product.2}}"></a>
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="card-content">
-                                <div class="row">
-                                    <div class="col-sm-8">
-                                        <a href="product/{{product.5}}"><p>{{product.1}}</p></a>
-                                        <p>{{product.1}}</p>
-                                        <h4>{{product.2}}</h4>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <h4> Price {{product.4}}</h4>
-                                    </div>
-                                </div>
-                                <div class="description">
-                                    <h6>{{product.3}}</h6>
-                                </div>
-                            </div>
-                            <div class="card-action">
-                                <a href="{{post.1}}"> View listing: Price {{product.4}}</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-
-
-
-{% endblock content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+$END$
+</body>
+</html>
