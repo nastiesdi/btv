@@ -12,17 +12,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<p id="text">Text</p>
-<button onclick="changeColor('blue');">Blue</button>
-<button onclick="changeColor('red');">Red</button>
-<script>
-    function changeColor(color){
-        var element = document.getElementById("text");
-        element.style.color = color;
-        console.log(color);
-        }
-</script>
+<!--<p id="text">Text</p>-->
+<!--<button onclick="changeColor('blue');">Blue</button>-->
+<!--<button onclick="changeColor('red');">Red</button>-->
+<!--<script>-->
+<!--    function changeColor(color){-->
+<!--        var element = document.getElementById("text");-->
+<!--        element.style.color = color;-->
+<!--        console.log(color);-->
+<!--        }-->
+<!--</script>-->
 <body>
     <div class=".container-fluid main-block">
         {% include 'include/header.html' %}
@@ -50,14 +51,16 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-9 my_block">
-                    {% include 'include/new_feedback.html' %}
+
                     {% block content %}
 
                     {% endblock content%}
+
                 </div>
             </div>
         </div>
     </div>
-<!--{% include 'include/footer.html' %}-->
+
+{% include 'include/footer.html' %}
 </body>
 </html>

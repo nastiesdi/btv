@@ -5,6 +5,7 @@ from .models import Search, Products
 # from bs4 import BeautifulSoup
 from . import models
 import csv
+from django.views import generic
 
 # Create your views here.
 
@@ -15,6 +16,37 @@ BASE_IMAGE_URL = 'https://images.craigslist.org/{}_300x300.jpg'
 PRODUCT_DICT = {'tv': 'телевизор', 'washer': 'стиральная машина', 'stove': 'варочная панель', 'hods': 'вытяжка',
                 'microwaves': 'микроволновая печь', 'dishwashers': 'посудомоечная машина',
                 'refrigerators': 'холодильник', 'ovens': 'духовой шкаф'}
+
+
+class ProductListView(generic.ListView):
+    model = Products
+    template_name = 'my_app/product-list.html'
+    paginate_by = 15
+
+
+class SearchListView(generic.ListView):
+    model = Products
+    template_name = 'my_app/product-list.html'
+    paginate_by = 15
+
+
+    def get_queryset(self):
+        search = self.request.GET.get('search')
+        object_list = Products.objects.filter(name__icontains=search) | Products.objects.filter(model__icontains=search)
+        return object_list
+
+
+class CatalogListView(generic.ListView):
+    model = Products
+    template_name = 'my_app/product-list.html'
+    paginate_by = 15
+
+    def get_queryset(self):
+        product_dict = {'tv': 'телевизор', 'washer': 'стиральная машина', 'stove': 'варочная панель', 'hods': 'вытяжка',
+                        'microwaves': 'микроволновая печь', 'dishwashers': 'посудомоечная машина',
+                        'refrigerators': 'холодильник', 'ovens': 'духовой шкаф'}
+        object_list = Products.objects.filter(name__icontains=product_dict.get(self.kwargs['product']))
+        return object_list
 
 
 def home(request):
@@ -28,47 +60,25 @@ def home(request):
 
 
 def catalog(request):
-    product_dict = {'tv': 'телевизор', 'washer': 'стиральная машина', 'stove': 'варочная панель', 'hods': 'вытяжка',
-                    'microwaves': 'микроволновая печь', 'dishwashers': 'посудомоечная машина',
-                    'refrigerators': 'холодильник', 'ovens': 'духовой шкаф'}
-    final_postings = []
-    all_tv = Products.objects.all()
-    for each in product_dict.values():
-        for product in all_tv:
-            if product.name.lower().lstrip().rstrip() == each:
-                final_postings.append([f'{product.idd}.jpg', product.name, product.model, product.description, product.price])
-                break
-    stuff_for_frontend = {'summary': final_postings}
-    return render(request, 'my_app/catalog.html', stuff_for_frontend )
+    return render(request, 'my_app/catalog.html')
 
 
 def product(request, productid):
     all_tv = Products.objects.all()
-    product=None
+    product = None
     for each in all_tv:
         if each.idd == int(productid):
-            product = {'img': f'{each.idd}.jpg', 'name': each.name, 'model': each.model, 'description': each.description, 'price': each.price, 'idd': each.idd}
+            product = {'img': f'{each.idd}.jpg', 'name': each.name, 'model': each.model,
+                       'description': each.description.replace(';', ';</strong></br>').replace(':',':<strong>'), 'price': each.price, 'idd': each.idd}
             break
     stuff_for_frontend = {'product': product}
     print(stuff_for_frontend)
     return render(request, 'my_app/product.html', stuff_for_frontend)
 
 
-def list_product(request, product):
-    product_dict = {'tv': 'телевизор', 'washer': 'стиральная машина', 'stove':'варочная панель', 'hods': 'вытяжка', 'microwaves': 'микроволновая печь', 'dishwashers': 'посудомоечная машина', 'refrigerators':'холодильник', 'ovens': 'духовой шкаф'}
-    all_tv = Products.objects.all()
-    final_postings = []
-    for each in all_tv:
-        if each.name.lower().lstrip().rstrip() == product_dict[product]:
-            final_postings.append([f'{each.idd}.jpg', each.name, each.model, each.description, each.price, each.idd])
-    stuff_for_frontend = {
-        'summary': final_postings}
-    return render(request, 'my_app/catalog.html', stuff_for_frontend)
-
-
 def list_product_from_main(request):
     all_tv = Products.objects.all()
-    return render(request, 'my_app/catalog.html', stuff_for_frontend)
+    return render(request, 'my_app/product-list.html', stuff_for_frontend)
 
 
 def contacts(request):
@@ -79,20 +89,6 @@ def payment(request):
     return render(request, 'my_app/payment.html')
 
 
-def search(request):
-    search = request.POST.get('search')
-    Search.objects.create(search=search)
-    final_postings = []
-    all_tv = Products.objects.all()
-    for each in all_tv:
-        if search.lower().lstrip().rstrip() in each.name.lower().lstrip().rstrip() or search.lower().lstrip().rstrip() in each.model.lower().lstrip().rstrip():
-            final_postings.append([f'{each.idd}.jpg', each.name, each.model, each.description, each.price])
-    stuff_for_frontend = {
-        'search': '',
-        'summary': final_postings, }
-    return render(request, 'my_app/catalog.html', stuff_for_frontend)
-
-
 def new_search(request):
     # with open('E:\parser\\test.csv', 'r') as infile:
     #     reader = csv.DictReader(infile, delimiter=',')
@@ -101,5 +97,3 @@ def new_search(request):
     #                                 description=line['description'])
     # Products.objects.all().delete()
     return render(request, 'base.html')
-
-

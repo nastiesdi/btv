@@ -1,18 +1,48 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div id="carousel" class="carousel slide" data-ride="carousel">
+<div id="carousel" class="carousel slide" data-ride="carousel" style="padding-top: 12px; height: auto;">
   <div class="carousel-inner banner">
     <div class="item active">
       <img src="/static/images/kitchen.jpg" alt="...">
       <div class="banner-text"><p><Strong>Бытовая техника для дома</Strong></p></div>
       <form action="{% url 'catalog'%}" method="get">
-      <button type="submit"  class="btn buy-all">Хочу скупить всё!</button>
+        <button type="submit"  class="btn buy-all">Хочу скупить всё!</button>
       </form>
-      <button type="submit"  class="btn buy-all feedback-button">Оставить заявку</button>
+      <form>
+        <button type="submit"  class="btn buy-all feedback-button">Оставить заявку</button>
+      </form>
     </div>
   </div>
 </div>
-
-
+<br>
+<!--<div class="row">-->
+<!--  <div class="col-3 col-md-6 img-block">-->
+<!--    <img src="/static/images/refregerator.png" alt="..."></div>-->
+<!--  <div class="col-3 col-md-6 img-block">-->
+<!--    <img src="/static/images/washing.png" alt="...">-->
+<!--    Стиральные машины</div>-->
+<!--    <div class="col-6 col-md-12 img-block">-->
+<!--  <img src="/static/images/tv.png" alt="...">Телевизоры</div>-->
+<!--</div>-->
+<div class="card-deck">
+  <div class="card main-card">
+    <a href="/catalog/refrigerators"><img src="/static/images/refregerator.png" class="card-img-top" alt="/catalog/refrigerators"></a>
+    <div class="card-body">
+      <a href="/catalog/refrigerators"><h5 class="card-title">Холодильники</h5></a></li>
+    </div>
+  </div>
+  <div class="card main-card">
+    <a href="/catalog/washer"><img src="/static/images/washing.png" class="card-img-top" alt="..."></a>
+    <div class="card-body">
+      <a href="/catalog/washer"><h5 class="card-title">Стиральные машины</h5></a></li>
+    </div>
+  </div>
+  <div class="card main-card">
+    <a href="/catalog/tv"><img src="/static/images/tv.png" class="card-img-top" alt="..."></a>
+    <div class="card-body">
+      <a href=/catalog/tv><h5 class="card-title">Телевизоры</h5></a></li>
+    </div>
+  </div>
+</div>
 {% endblock content %}

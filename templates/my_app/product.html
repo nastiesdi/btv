@@ -2,19 +2,19 @@
 
 {% block content %}
 
-<div class="container ">
-    <h3 class="main-text">{{product.name}}</h3>
-    <div class="col-sm-12">
-        <div class="card my-product">
-            <div class="row d-inline-flex ">
-                <div class="col-sm-4">
-                    <div class="card-image product">
+<div class="container col-sm-12">
+    <h3 class="main-text">{{product.model|capfirst}}</h3>
+        <div class="my-product">
+            <div class="row ">
+                <div class="col-6">
+                    <div class="card-image product" style="text-align:center;">
                             <a href="/static/images/{{product.img}}"><img src="/static/images/{{product.img}}" alt="{{product.name}}"></a>
                     </div>
                 </div>
-                <div class="col-sm-8">
-                    <h3 class="model main-text"><small>Модель {{product.model}}</small></h3>
-                    <h5 class="main-text"><small><small> Описание: {{product.description}}</small></small></h5>
+                <div class="col-6">
+                    <h3 class="model main-text" style="text-align: right;">{{product.name}}</h3>
+                    <div class="_item">  <i class="material-icons">check</i> <p class="icon-text">В наличии</p></div>
+                    <h5 class="main-text product-text">{{product.description|safe}}</h5>
                 </div>
             </div>
         </div>

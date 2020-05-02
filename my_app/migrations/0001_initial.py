@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
                 ('model', models.CharField(max_length=500)),
                 ('url', models.CharField(max_length=500)),
                 ('image', models.ImageField(blank=True, upload_to='e')),
-                ('description', models.CharField(max_length=500)),
+                ('description', models.CharField(max_length=10000)),
             ],
         ),
     ]

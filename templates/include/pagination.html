@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.pagination {
+    display: inline-block;
+}
+.center {
+    text-align: center;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd; /* Gray */
+    border-radius: 5px;
+}
+
+.pagination a.active {
+    background-color: #feb386;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #9d999d;}
+
+.pagination a {
+    margin: 0 4px; /* 0 is for top and bottom. Feel free to change it */
+}
+</style>
+</head>
+<body>
+{% if is_paginated %}
+<div class="center">
+    <div class="pagination">
+        <span class="page-links">
+            {% if page_obj.has_previous %}
+            <a href="{{request.path}}?page={{page_obj.previous_page_number}}"><<</a>
+            {% endif %}
+            {% if page_obj.paginator.num_pages < 6 %}
+                {% for each in page_obj.paginator.page_range %}
+                    <a href="{{request.path}}?page={{each}}" {% if each == page_obj.number %}class="active"{%endif %}>{{each}}</a>
+                {% endfor %}
+            {% elif page_obj.number is 1 %}
+                    <a href="{{request.path}}?page=1" class="active">1</a>
+                    <a href="{{request.path}}?page=2" >2</a>
+                    <a href="{{request.path}}?page=2" >3</a>
+                    <a href={{request.path}}?page=1" >...</a>
+                    <a href="{{request.path}}?page={{page_obj.paginator.num_pages|add:-2}}">{{page_obj.paginator.num_pages|add:-2}}</a>
+                    <a href="{{request.path}}?page={{page_obj.paginator.num_pages|add:-1}}">{{page_obj.paginator.num_pages|add:-1}}</a>
+                    <a href="{{request.path}}?page={{page_obj.paginator.num_pages}}">{{page_obj.paginator.num_pages}}</a>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <a href="{{request.path}}?page={{page_obj.next_page_number}}">>></a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+{% endif %}

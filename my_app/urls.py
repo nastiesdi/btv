@@ -1,5 +1,6 @@
 from django.urls import path
 from django.urls import re_path
+from django.conf.urls import url
 from . import views
 
 urlpatterns = [
@@ -10,7 +11,8 @@ urlpatterns = [
     path('new_search', views.new_search, name='new_search'),
     re_path(r'^contacts', views.contacts, name='contacts'),
     path('payment', views.payment, name='payment'),
-    path('catalog/<str:product>/', views.list_product, name='payment'),
-    path('search', views.search, name='search'),
-    path('catalog', views.catalog, name='catalog'),
+    path('catalog/<str:product>/', views.CatalogListView.as_view(), name='payment'),
+    url(r'catalog$', views.catalog, name='catalog'),
+    path('search', views.SearchListView.as_view(), name='search'),
+
 ]

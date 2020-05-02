@@ -2,45 +2,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<h2 style="text-align: center">{{search|title}}</h2>
-
 <div class="row">
-        {% for product in summary %}
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="row d-inline-flex ">
-                        <div class="col-sm-4">
-                            <div class="card-image product">
-                                    <a href="/static/images/{{product.0}}"><img src="/static/images/{{product.0}}" alt="{{product.2}}"></a>
+        {% for product in object_list %}
+            <div class="col-sm-4">
+                <div class="card" style="height:400px;" >
+<!--                    <div class="row d-inline-flex ">-->
+                            <div class="card-image product " style="height:150px;">
+                                    <a href="{% url 'product' product.idd %}"><img style="height:140px; width:auto; margin-left: auto; margin-right: auto; margin-top: 5%; padding-left:1rem; padding-right:1rem;" src="/static/images/{{product.idd}}.jpg" alt="{{product.model}}"></a>
                             </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="card-content">
-                                <div class="row">
-                                    <div class="col-sm-8">
-                                        <a href="product/{{product.5}}"><p>{{product.1}}</p></a>
-                                        <p>{{product.1}}</p>
-                                        <h4>{{product.2}}</h4>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <h4> Price {{product.4}}</h4>
-                                    </div>
-                                </div>
-                                <div class="description">
-                                    <h6>{{product.3}}</h6>
-                                </div>
+                            <div class="card-content" style="height:130px;">
+                                <a href="{% url 'product' product.idd %}"><p>{{product.1}}</a>
+                                <p>{{product.name}}</p>
+                                <h4>{{product.model}}</h4>
                             </div>
-                            <div class="card-action">
-                                <a href="{{post.1}}"> View listing: Price {{product.4}}</a>
+                            <div class="card-content" style="height:70px;">
+                                <button type="submit"  class="btn">Оставить заявку</button>
                             </div>
-                        </div>
-                    </div>
+                            <div class="card-action" style="height:50px;">
+                                <a href="{% url 'product' product.idd %}"> Цена: {{product.price}}</a>
+                            </div>
+<!--                        </div>-->
                 </div>
             </div>
+        {% empty %}
+        <li>Sorry, no athletes in this list.</li>
         {% endfor %}
     </div>
 
-
+{% include 'include/pagination.html' %}
 
 {% endblock content %}

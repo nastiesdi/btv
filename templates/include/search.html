@@ -14,8 +14,8 @@ font-size:2rem;}
 </head>
 <body>
     <div class="search">
-        <form action="{% url 'search'%}" method="post">
-            {% csrf_token %}
+        <form action="{% url 'search'%}" method="get">
+<!--            {% csrf_token %}-->
             <input type="text" name="search" placeholder="Поиск товара" >
             <button class="btn " type="submit" name="">
             <i class="material-icons">search</i>
