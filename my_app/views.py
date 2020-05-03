@@ -50,12 +50,6 @@ class CatalogListView(generic.ListView):
 
 
 def home(request):
-    all_tv = Products.objects.all()
-    final_postings = []
-    for each in all_tv:
-        final_postings.append([f'{each.idd}.jpg', each.name, each.model, each.image])
-    stuff_for_frontend = {
-        'summary': final_postings}
     return render(request, 'my_app/main.html')
 
 
@@ -75,18 +69,14 @@ def product(request, productid):
     print(stuff_for_frontend)
     return render(request, 'my_app/product.html', stuff_for_frontend)
 
-
-def list_product_from_main(request):
-    all_tv = Products.objects.all()
-    return render(request, 'my_app/product-list.html', stuff_for_frontend)
-
-
 def contacts(request):
     return render(request, 'my_app/сontacts.html')
 
 
 def payment(request):
     return render(request, 'my_app/payment.html')
+
+
 
 
 def new_search(request):

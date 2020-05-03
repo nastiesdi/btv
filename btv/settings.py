@@ -24,7 +24,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = '=-s&3=5cl$!2=ae=66*1w_di^=af7wwqdgj2qf!d$^s9ddwy)!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['btv777.by', '127.0.0.1']
 

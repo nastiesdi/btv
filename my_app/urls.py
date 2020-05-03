@@ -1,6 +1,7 @@
 from django.urls import path
 from django.urls import re_path
 from django.conf.urls import url
+from django.conf.urls import handler400, handler500
 from . import views
 
 urlpatterns = [
