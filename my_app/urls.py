@@ -14,6 +14,7 @@ urlpatterns = [
     path('payment', views.payment, name='payment'),
     path('catalog/<str:product>/', views.CatalogListView.as_view(), name='payment'),
     url(r'catalog$', views.catalog, name='catalog'),
+    # url(r'search', views.ESearchView.as_view(), name='search'),
     path('search', views.SearchListView.as_view(), name='search'),
 
 ]

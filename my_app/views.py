@@ -5,7 +5,7 @@ from .models import Search, Products
 # from bs4 import BeautifulSoup
 from . import models
 import csv
-from django.views import generic
+from django.views import generic, View
 
 # Create your views here.
 
@@ -29,9 +29,15 @@ class SearchListView(generic.ListView):
     template_name = 'my_app/product-list.html'
     paginate_by = 15
 
+    def get_context_data(self, **kwargs):
+        context = super(SearchListView, self).get_context_data(**kwargs)
+        q = self.request.GET.get('search')
+        q = q.replace(" ","+")
+        context['search'] = q
+        return context
 
     def get_queryset(self):
-        search = self.request.GET.get('search')
+        search = self.request.GET.get('search').rstrip().lstrip()
         object_list = Products.objects.filter(name__icontains=search) | Products.objects.filter(model__icontains=search)
         return object_list
 
@@ -87,3 +93,5 @@ def new_search(request):
     #                                 description=line['description'])
     # Products.objects.all().delete()
     return render(request, 'base.html')
+
+

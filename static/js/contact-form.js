@@ -8,7 +8,6 @@ var $popUp = $('#popup');
 
 
 $('document').ready(function(){
-//    alert('ddd');
     $popOverlay.hide();
     $popWindow.hide();
     console.log('open page');

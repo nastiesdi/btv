@@ -40,9 +40,13 @@
             {% if page_obj.has_previous %}
             <a href="{{request.path}}?page={{page_obj.previous_page_number}}"><<</a>
             {% endif %}
-            {% if page_obj.paginator.num_pages < 6 %}
+            {% if page_obj.paginator.num_pages < 10 %}
                 {% for each in page_obj.paginator.page_range %}
+                    {% if search %}
+                        <a href="{{request.path}}?search={{search}}&page={{each}}" {% if each == page_obj.number %}class="active"{%endif %}>{{each}}</a>
+                    {% else %}
                     <a href="{{request.path}}?page={{each}}" {% if each == page_obj.number %}class="active"{%endif %}>{{each}}</a>
+                    {% endif %}
                 {% endfor %}
             {% elif page_obj.number is 1 %}
                     <a href="{{request.path}}?page=1" class="active">1</a>

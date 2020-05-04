@@ -7,6 +7,8 @@ class FeedBackView(View):
     def post(self, request):
         print('heeeere')
         form = FeedBackForm(request.POST)
+        print('usfhisdcmsdc')
+        print(form.is_bound)
         if form.is_valid():
             form.save()
             return redirect('/')
