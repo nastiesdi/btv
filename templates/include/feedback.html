@@ -1,5 +1,6 @@
- <h4 class="name-form">Оставить заявку</h4>
-<form class='p-3' action="{% url 'feedback' %}" method="POST">
+ <h3 class="name-form">ОСТАВИТЬ ЗАЯВКУ</h3>
+ {{request.path}}
+<form class='p-3' action='{{request.path}}feedback/' method="POST">
     {% csrf_token %}
       <div class="form-group ">
         <label for="exampleInputEmail1">Email*</label>
@@ -18,9 +19,11 @@
         <input name="description" class="form-control" id="exampleInputDescription" aria-describedby="emailHelp" placeholder="Необязательно">
       </div>
       <div class="form-group">
-        <label for="exampleInputTime">Описание</label>
+        <label for="exampleInputTime">Удобное время</label>
         <input name="call_time" class="form-control" id="exampleInputTime" aria-describedby="emailHelp" placeholder="Необязательно">
       </div>
-      <button type="submit" class="btn btn-primary form-button">Перезвонить</button>
+      <div class="card-content" style="height:70px;">
+          <button type="submit" style="width:100%; padding: 0 20% 0px 15%; background-color:var(--grey-color); color: white;"  class="btn">Перезвонить</button>
+      </div>
       <h5 class="wrong_fields">{% if "/wrong_field" in request.path %}<script> alert('Введены неверные данные')</script>{%endif %}</h5>
 </form>

@@ -2,24 +2,50 @@
 
 {% block content %}
 
-<div class="container col-sm-12">
-    <h3 class="main-text">{{product.model|capfirst}}</h3>
+<!--<div class="col-sm-12">-->
+<h4 class="main-text" style="padding-bottom:10pt;"><strong>{{product.name|capfirst}}</strong></h4>
         <div class="my-product">
             <div class="row ">
-                <div class="col-6">
+                <div class="col-12 col-sm-5">
                     <div class="card-image product" style="text-align:center;">
-                            <a href="/static/images/{{product.img}}"><img src="/static/images/{{product.img}}" alt="{{product.name}}"></a>
+                            <img src="/static/images/products/{{product.img_id}}.jpg" alt="{{product.name}}">
                     </div>
                 </div>
-                <div class="col-6">
-                    <h3 class="model main-text" style="text-align: right;">{{product.name}}</h3>
-                    <div class="_item">  <i class="material-icons">check</i> <p class="icon-text">В наличии</p></div>
-                    <h5 class="main-text product-text">{{product.description|safe}}</h5>
+                <div class="col-12 col-sm-7">
+                      <div class="row" style="padding-top:20pt">
+                          <div class="col-7"><p><b>Артикул - {{ product.article }} </b></p></div>
+                          <div class="col-4 ml-auto"><strong class="model main-text">{{product.model}} </strong></div>
+                      </div>
+                     <div class="row col-12">
+                        <div class="_item">  <i class="material-icons">check</i> <p class="icon-text">В наличии</p></div>
+                     </div>
+                    <div class="row col-12">
+                        <div class="col-7"><h4 class="main-color"> <strong>{{product.price}} </strong></h4></div>
+                        <div class="col-5"><a  id="popup" href="javascript:void(0);">
+                        <button type="button" class="btn buy-all feedback-button" style="top:40%">Оставить заявку</button>
+                        </a></div>
+                    </div>
+                    <div class="row col-12" style="padding-top:5pt;">
+                        <p><i class="material-icons" style="padding-top:7px;  margin-right:2px;">attach_money</i></p><div class="row" style="margin:5pt;">
+                        <p><strong>Способы оплаты: </strong> наличный и безналичный расчет</p></div></div>
+                    <div class="row col-12">
+                        <p><i class="material-icons" style="padding-top:7px;  margin-right:2px;">payment</i></p>
+                        <div class="row payment-methods" style="margin:5pt;"><p><strong class='payment-methods' style="padding-top:7px;">Банковские карты:   </strong></p></div>
+                        <img src="/static/images/payment/visa.png" style="width:40px; heigth:auto; margin-left:2px;">
+                        <img src="/static/images/payment/mastercard.png" style="width:40px; margin-left:2px;">
+                        <img src="/static/images/payment/maestro.png" style="width:40px; margin-left:2px;">
+                        <img src="/static/images/payment/belcard.svg" style="width:40px; margin-left:2px;">
+                    </div>
+                    <div class="row col-12"><small>
+                    *При оплате в рассрочку или картой рассрочки отменяются действующие скидки.</small>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div class="container col-12 full_info">
+                <h5 class="main-text product-text">{{product.description|safe}}</h5>
+            </div>
     </div>
-</div>
+<!--</div>-->
 
 
 {% endblock content %}

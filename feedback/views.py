@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import FeedBackForm
+from django.http import HttpResponseRedirect
 from django.views.generic import View
 
 
@@ -11,7 +12,8 @@ class FeedBackView(View):
         print(form.is_bound)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            url=post.get_url()
+            return HttpResponseRedirect(url)
         else:
             return redirect('/wrong_field')
 
