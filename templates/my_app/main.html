@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <div id="carousel" class="carousel slide" data-ride="carousel" style="padding-top: 12px; height: auto;">
   <div class="carousel-inner banner">
     <div class="item active">
@@ -9,12 +10,22 @@
       <form action="{% url 'catalog'%}" method="get">
         <button type="submit"  class="btn buy-all">Хочу скупить всё!</button>
       </form>
-      <form>
-         <a  id="popup" href="javascript:void(0);">
-             <button type="button" class="btn buy-all feedback-button">Оставить заявку</button>
+             <button type="button" id="popup" class="btn buy-all feedback-button">Оставить заявку</button>
+
+       <script>
+       var $popUp = $('#popup');
+       var $try = $('#hide-modal');
+
+       $(document).ready(function() {
+       $try.hide();
+          $popUp.on("click", function() {
+          $try.show();
+          console.log('start');
+        });
+          });
+       </script>
+
          </a>
-<!--        <script src="/static/js/contact-form.js"> </script>-->
-      </form>
     </div>
   </div>
 </div>
@@ -39,4 +50,6 @@
     </div>
   </div>
 </div>
+
 {% endblock content %}
+

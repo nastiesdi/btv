@@ -8,8 +8,8 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,700,900" rel="stylesheet">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-<!--  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">-->
-
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+ 
   <style>
     /* Стили для затемнения фона */
     .popup-overlay {
@@ -19,14 +19,14 @@
       top: 0;
       right: 0;
       bottom: 0;
-      background: rgba(255, 228, 181, 0.7);
+      background: rgba(255, 186, 0, 0.7);
       z-index: 100;
     }
-
+ 
     /* Основные стили для всплывающего окна */
     .popWindow{
       display: none;
-      background-color: var(--grey-color);
+      background-color: #161613;
       color: #fff;
       width: 90%;
       max-width: 720px;
@@ -85,7 +85,7 @@
       border: 1px solid #3d3d3d;
       width: 100%;
       font-family: "Lato", sans-serif;
-      font-size: 20px;
+      font-size: 16px;
       line-height: 32px;
       padding: 5px 20px;
       margin-bottom: 20px;
@@ -96,7 +96,7 @@
     }
     .btn {
       color: #161613;
-      background-color: var(--main-color);
+      background-color: #ffba00;
       padding: 10px 50px;
       text-align: center;
       font-size: 13px;
@@ -110,13 +110,13 @@
       transition: 0.4s;
     }
     .btn:hover, .btn:focus {
-      background-color: #FF6347;
+      background-color: #ffba00;
       color: #fff;
       text-decoration: none;
     }
     .subscribe-form .btn {
-      font-size: 15px;
-      line-height: 10px;
+      font-size: 24px;
+      line-height: 54px;
       border: none;
       width: 100%;
       padding: 10px;
@@ -126,7 +126,7 @@
       border-radius: 4px;
     }
     .subscribe-form .btn:hover {
-      background-color: #FFA07A;
+      background-color: #e6a700;
     }
     .subscribe-form .btn i {
       font-size: 28px;
@@ -185,8 +185,8 @@
         top: -18px;
       }
     }
-
-    /* Стили для текста внутри благодарственного окна после успешной отправки
+ 
+    /* Стили для текста внутри благодарственного окна после успешной отправки */
     .thank_you_window .thank_you_title {
       font-family: "Titillium Web", sans-serif;
       color: #fff;
@@ -204,110 +204,108 @@
   </style>
 </head>
 <body>
-
-  <div class="container"  id='modal-form'>
+ 
+  <div class="container">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
+        <h1>Contact Form</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime repellat asperiores natus unde quos consequuntur aliquid temporibus doloremque nihil nulla quidem, expedita hic nobis ipsam quia fugiat. Sunt, maxime, fugit!</p>
+ 
         <div class="popup-overlay"><!-- //оверлей - отображение формы на затемненном фоне -->
+ 
           <div class="popWindow subscribe_window"><!-- //основное окно формы Подписки -->
-            <p class="subcsribe-text">Оставьте заявку и мы свяжемся с вами</p>
-            <form class="subscribe-form" autocomplete="off" action="{% url 'new_feedback' %}" method="POST">
-              {% csrf_token %}
+            <p class="subcsribe-text">Subscribe to receive news and information</p>
+            <form class="subscribe-form" autocomplete="off">
               <div>
-                <input type="text" id="name-subscribe" name="name" placeholder= " " required>
-                <label for="name-subscribe">Имя <span>*</span></label>
+                <input type="text" id="name-subscribe" name="Name" placeholder=" " required>
+                <label for="name-subscribe">Name <span>*</span></label>
               </div>
               <div>
-                <input type="email" id="email-subscribe" name="email" placeholder=" " required>
-                <label for="email-subscribe">E-mail<span>*</span></label>
-              </div>
-              <div>
-                <input type="tel" id="phone" name="phone" pattern="[+0-9]{6-16}" placeholder=" " required>
-                <label for="email-subscribe">Номер <span>*</span></label>
+                <input type="email" id="email-subscribe" name="E-mail" placeholder=" " required>
+                <label for="email-subscribe">Email <span>*</span></label>
               </div>
               <div class="aligncenter">
-                <button type="submit" class="btn"><i class="fa fa-check" aria-hidden="true"></i> Отправить заявку</button>
+                <button type="submit" class="btn"><i class="fa fa-check" aria-hidden="true"></i> Subscribe</button>
               </div>
-              <div class="req-fields"><sup>*</sup> обязательные поля</div>
+              <div class="req-fields"><sup>*</sup> required fields</div>
             </form>
             <div class="close-btn">&times;</div>
           </div><!-- /subscribe_window -->
+ 
           <div class="popWindow thank_you_window"><!-- //благодарственное окно после успешной отправки формы -->
-            <p class="thank_you_title">Спасибо за заявку</p>
-            <p class="thank_you_body">Мы свяжемся с вами в ближайшее время</p>
+            <p class="thank_you_title">Thank you for subscribing!</p>
+            <p class="thank_you_body">We've sent some useful tips to your email. Go ahead and check them now!</p>
             <div class="close-btn">&times;</div>
           </div><!-- /thank_you_window -->
+ 
         </div><!-- /popup-overlay -->
+ 
       </div>
     </div>
   </div>
-
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.denis-creative.com/jquery.cookie.min/jquery.cookie.min.js"></script><!-- этот скрипт скачайте и добаьте локально, если нужны куки -->
   <script>
-// PopUp Form and thank you popup after sending message
-var $popOverlay = $(".popup-overlay");
-var $popWindow = $(".popWindow");
-var $subscribeWindow = $(".subscribe_window");
-var $popThankYouWindow = $(".thank_you_window");
-var $popClose = $(".close-btn");
-var $popUp = $('#popup');
-
-$(document).ready(function() {
-$popUp.on('click', function(){
-  $popOverlay.fadeIn();
-  $popWindow.fadeIn();
-  $popThankYouWindow.hide();
-  console.log('pop up on click old');
-});});
-
-$(document).ready(function() {
-  // Close Pop-Up after clicking on the button "Close"
-  $popClose.on("click", function() {
-    $popOverlay.fadeOut();
-    $popWindow.fadeOut();
-    console.log('close on button');
-  });
-
-  // Close Pop-Up after clicking on the Overlay
-<!--  $(document).on("click", function(event) {-->
-<!--    if ($(event.target).closest($popWindow).length) return;-->
-<!--    $popOverlay.fadeOut();-->
-<!--    $popWindow.fadeOut();-->
-<!--    event.stopPropagation();-->
-<!--  });-->
-
-  // Form Subscribe
-  $(".subscribe-form").submit(function() {
-    var th = $(this);
-    $.ajax({
-      type: "POST",
-      url: {% url 'new_feedback' %},
-      data: th.serialize()
-    }).done(function() {
-      // после успешной отправки скрываем форму подписки и выводим окно с благодарностью за заполнение формы
-      $subscribeWindow.fadeOut();
-      $popThankYouWindow.fadeIn();
-      // используем куки на 30 дней, если человек заполнил форму
-      // для куки обязательно должен быть подключен jquery.cookie.min.js
-      //$.cookie('hideTheModal', 'true', { expires: 30 });
-      // очищаем форму
-      setTimeout(function() {
-        th.trigger("reset");
-      }, 1000);
+    // PopUp Form and thank you popup after sending message
+    var $popOverlay = $(".popup-overlay");
+    var $popWindow = $(".popWindow");
+    var $subscribeWindow = $(".subscribe_window");
+    var $popThankYouWindow = $(".thank_you_window");
+    var $popClose = $(".close-btn");
+ 
+    $(function() {
+      // Close Pop-Up after clicking on the button "Close"
+      $popClose.on("click", function() {
+        $popOverlay.fadeOut();
+        $popWindow.fadeOut();
+      });
+ 
+      // Close Pop-Up after clicking on the Overlay
+      $(document).on("click", function(event) {
+        if ($(event.target).closest($popWindow).length) return;
+        $popOverlay.fadeOut();
+        $popWindow.fadeOut();
+        event.stopPropagation();
+      });
+ 
+      // Form Subscribe
+      $(".subscribe-form").submit(function() {
+        var th = $(this);
+        $.ajax({
+          type: "POST",
+          url: "mail.php",
+          data: th.serialize()
+        }).done(function() {
+          // после успешной отправки скрываем форму подписки и выводим окно с благодарностью за заполнение формы
+          $subscribeWindow.fadeOut();
+          $popThankYouWindow.fadeIn();
+          // используем куки на 30 дней, если человек заполнил форму
+          // для куки обязательно должен быть подключен jquery.cookie.min.js
+          $.cookie('hideTheModal', 'true', { expires: 30 });
+          // очищаем форму
+          setTimeout(function() {
+            th.trigger("reset");
+          }, 1000);
+        });
+        return false;
+      });
     });
-    return false;
-  });
-});
-
-// используйте этот код, если нужно появление формы без куки
-$(window).load(function() {
-  setTimeout(function() {
-    $popOverlay.fadeIn();
-    $subscribeWindow.fadeIn();
-  }, 2000);
-});
-
+ 
+    // используйте этот код, если нужно появление формы с куки и вы подключали jquery.cookie.min.js
+    $(window).load(function() {
+      // задаем переменную для cookie
+      var hideTheModal = $.cookie('hideTheModal');
+      // если cookie не установлено...
+      if(hideTheModal == null){
+        // Через 2 секунды появляется контактная форма
+        setTimeout(function() {
+          $popOverlay.fadeIn();
+          $subscribeWindow.fadeIn();
+        }, 2000);
+      }
+    });
   </script>
-
+ 
 </body>
 </html>
-

@@ -1,4 +1,3 @@
-// PopUp Form and thank you popup after sending message
 var $popOverlay = $(".popup-overlay");
 var $popWindow = $(".popWindow");
 var $subscribeWindow = $(".subscribe_window");
@@ -7,20 +6,9 @@ var $popClose = $(".close-btn");
 var $popUp = $('#popup');
 
 
-$('document').ready(function(){
-    $popOverlay.hide();
-    $popWindow.hide();
-    console.log('open page');
-});
-
-
 $popUp.on('click', function(){
-//    $popOverlay.addClass('$popup-overlay')
-    $popOverlay.fadeIn();
-    $popWindow.fadeIn();
-    $popThankYouWindow.remove()
-    console.log('click')
-
+  $popOverlay.fadeIn();
+  $popWindow.fadeIn();
 });
 
 $(function() {
@@ -33,10 +21,9 @@ $(function() {
   // Close Pop-Up after clicking on the Overlay
   $(document).on("click", function(event) {
     if ($(event.target).closest($popWindow).length) return;
-//    $popOverlay.fadeOut();
-//    $popWindow.fadeOut();
+    $popOverlay.fadeOut();
+    $popWindow.fadeOut();
     event.stopPropagation();
-    console.log('here2')
   });
 
   // Form Subscribe
@@ -44,7 +31,7 @@ $(function() {
     var th = $(this);
     $.ajax({
       type: "POST",
-      url: 'url ',
+      url: {% url 'new_feedback' %},
       data: th.serialize()
     }).done(function() {
       // после успешной отправки скрываем форму подписки и выводим окно с благодарностью за заполнение формы
