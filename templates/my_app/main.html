@@ -10,21 +10,7 @@
       <form action="{% url 'catalog'%}" method="get">
         <button type="submit"  class="btn buy-all">Хочу скупить всё!</button>
       </form>
-             <button type="button" id="popup" class="btn buy-all feedback-button">Оставить заявку</button>
-
-       <script>
-       var $popUp = $('#popup');
-       var $try = $('#hide-modal');
-
-       $(document).ready(function() {
-       $try.hide();
-          $popUp.on("click", function() {
-          $try.show();
-          console.log('start');
-        });
-          });
-       </script>
-
+             <button type="button" class="btn buy-all popup feedback-button">Оставить заявку</button>
          </a>
     </div>
   </div>

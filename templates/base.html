@@ -16,7 +16,7 @@
     <script src="{% static 'js/javascript.js' %}"></script>
 </head>
 <body>
-<a id="hide-modal"> {% include 'include/new_feedback.html' %} </a>
+<a id="include-feedback-modal"> {% include 'include/new_feedback.html' %} </a>
     <div class=".container-fluid main-block">
         {% include 'include/header.html' %}
         <div class="container">
@@ -45,10 +45,26 @@
 
                     {% endblock content%}
 
+                {% include 'include/go_to_up.html' %}
                 </div>
             </div>
         </div>
+
     </div>
+
 {% include 'include/footer.html' %}
+       <script>
+       var $popUp = $('.popup');
+       var $modal = $('#include-feedback-modal');
+
+       $(document).ready(function() {
+       $modal.hide();
+          $popUp.on("click", function() {
+          $modal.show();
+          console.log('start');
+        });
+          });
+       </script>
+
 </body>
 </html>

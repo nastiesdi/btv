@@ -1,14 +1,12 @@
-# import requests
+
 from django.shortcuts import render
 import json
-# from requests.compat import quote_plus
-from .models import Search, Products
-# from bs4 import BeautifulSoup
-from . import models
-import csv
-from django.views import generic, View
 
-# Create your views here.
+from .models import Search, Products
+
+from django.views import generic
+
+
 
 BASE_CRAIGSLIST_URL = 'https://losangeles.craigslist.org/search/?query={}'
 BASE_IMAGE_URL = 'https://images.craigslist.org/{}_300x300.jpg'
@@ -30,13 +28,13 @@ PRODUCT_DICT = {'tv': 'Электроника / ТВ и Аксессуары / �
 class ProductListView(generic.ListView):
     model = Products
     template_name = 'my_app/product-list.html'
-    paginate_by = 15
+    paginate_by = 18
 
 
 class SearchListView(generic.ListView):
     model = Products
     template_name = 'my_app/product-list.html'
-    paginate_by = 15
+    paginate_by = 18
 
     def get_context_data(self, **kwargs):
         context = super(SearchListView, self).get_context_data(**kwargs)
@@ -48,14 +46,18 @@ class SearchListView(generic.ListView):
 
     def get_queryset(self):
         search = self.request.GET.get('search').rstrip().lstrip()
-        object_list = Products.objects.filter(name__icontains=search) | Products.objects.filter(model__icontains=search)
-        return object_list
+        for each in range(-1, -100, -1):
+            search =search[:each]
+            new_search = search.lower().title()
+            object_list = Products.objects.filter(name__icontains=search) | Products.objects.filter(model__icontains=search) | Products.objects.filter(name__icontains=new_search) | Products.objects.filter(model__icontains=new_search)
+            if object_list:
+                return object_list
 
 
 class CatalogListView(generic.ListView):
     model = Products
     template_name = 'my_app/product-list.html'
-    paginate_by = 15
+    paginate_by = 18
 
     def get_context_data(self, **kwargs):
         context = super(CatalogListView, self).get_context_data(**kwargs)
@@ -63,7 +65,6 @@ class CatalogListView(generic.ListView):
         return context
 
     def get_queryset(self):
-        print(PRODUCT_DICT.get(self.kwargs['product']))
         object_list = Products.objects.filter(category__icontains=PRODUCT_DICT.get(self.kwargs['product']))
         return object_list
 
@@ -82,12 +83,8 @@ def product(request, productid):
     for each in all_tv:
         if each.id == int(productid):
             product = each
-                # {'img': f'{each.img_id}.jpg', 'name': each.name, 'model': each.model,
-                #        'description': each.description,
-                #        'price': each.price, 'idd': each.idd}
             break
     stuff_for_frontend = {'product': product}
-    print(stuff_for_frontend)
     return render(request, 'my_app/product.html', stuff_for_frontend)
 
 

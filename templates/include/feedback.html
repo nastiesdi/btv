@@ -1,6 +1,5 @@
  <h3 class="name-form">ОСТАВИТЬ ЗАЯВКУ</h3>
- {{request.path}}
-<form class='p-3' action='{{request.path}}feedback/' method="POST">
+<form class='p-3' action='feedback/' method="POST">
     {% csrf_token %}
       <div class="form-group ">
         <label for="exampleInputEmail1">Email*</label>

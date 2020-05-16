@@ -203,7 +203,6 @@ line-height: 3pt!important;
 
 }
 
-
 .left_menu >li>a{
 	border-bottom: 1px solid #d0cfcf;
 	color: #6b6b6b;
@@ -488,6 +487,15 @@ tr {
     transition: background-color .3s;
     border: 1px solid #ddd; /* Gray */
     border-radius: 3px;
+}
+.search form button{
+    bottom:0px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.search form button:hover{
+    font-color:white;
+}
 }
 
 }

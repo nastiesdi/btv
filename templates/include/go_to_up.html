@@ -1,0 +1,40 @@
+<head>
+    <style>
+
+.scrollup{
+    width:50px;
+    height:50px;
+    opacity:0.8;
+    position:fixed;
+    bottom:180pt;
+    right:25pt;
+    display:none;
+    text-align: center;
+    background: var(--grey-color) no-repeat;
+    }
+.scrollup i{
+    font-size:5rem;
+    color: white;}
+
+.scrollup i:hover{
+color: var(--main-color) }
+
+    </style>
+</head>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(window).scroll(function(){
+        if ($(this).scrollTop() > 100) {
+        $('.scrollup').fadeIn();
+        } else {
+        $('.scrollup').fadeOut();
+        }
+        });
+        $('.scrollup').click(function(){
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+        });
+    });
+</script>
+<a href="#" class="scrollup"> <i class="material-icons">eject</i></a>

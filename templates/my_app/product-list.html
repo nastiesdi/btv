@@ -8,7 +8,7 @@
                 <div class="card" style="height:400px;" >
 <!--                    <div class="row d-inline-flex ">-->
                             <div class="card-image product " style="height:150px;">
-                                <a href="{% url 'product' product.id %}"><img style="height:140px; width:auto; margin-left: auto; margin-right: auto; margin-top: 5%; padding-left:1rem; padding-right:1rem;" src="/static/images/products/{{product.img_id}}.jpg" alt="{{product.model}}"></a>
+                                <a href="{% url 'product' product.id %}"><img style="height:140px; width:auto; margin-left: auto; margin-right: auto; margin-top: 5%; padding-left:1rem; padding-right:1rem;" src="/static/images/products/{{product.img_id}}.jpg" onError="this.src='/static/images/logo.png'" alt="{{product.model}}" ></a>
                             </div>
                             <div class="card-content" style="height:130px;">
                                 <a href="{% url 'product' product.id %}"><p>{{product.1}}</a>
@@ -16,7 +16,7 @@
                                 <h4>{{product.name}}</h4>
                             </div>
                             <div class="card-content" style="height:70px;">
-                                <button type="submit" style="width:100%; padding: 0 20% 0px 15%;"  class="btn">Оставить заявку</button>
+                                <button type="submit" style="width:100%; padding: 0 20% 0px 15%;"  class="btn popup">Оставить заявку</button>
                             </div>
                             <div class="card-action" style="height:50px;">
                                 <a href="{% url 'product' product.id %}"> Цена: {{product.price}}</a>
