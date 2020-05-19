@@ -77,11 +77,12 @@ def catalog(request):
     return render(request, 'my_app/catalog.html')
 
 
-def product(request, productid):
+def product(request, article):
     all_tv = Products.objects.all()
     product = None
+    print(article)
     for each in all_tv:
-        if each.id == int(productid):
+        if each.url == article:
             product = each
             break
     stuff_for_frontend = {'product': product}
@@ -99,18 +100,28 @@ def payment(request):
 def new_search(request):
     with open(r'E:\untitled\db.json', 'r') as infile:
         reader = json.loads(infile.read())
+        cyrillic = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+
+        latin = 'a|b|v|g|d|e|e|zh|z|i|i|k|l|m|n|o|p|r|s|t|u|f|kh|tc|ch|sh|shch||y||e|iu|ia'.split(
+            '|')  # таблица транслитерации не самая новая
+        trantab = {k: v for k, v in zip(cyrillic, latin)}
+        print(trantab)
         for line in reader:
+            new_url = ''
             try:
                 line.get('Сервисные центры')
             except:
                 servise_centre = None
             else:
                 servise_centre = line.get('Категория')
+            url=line['Артикул'] + '_' + line['Бренд'].lower()
+            for ch in url:
+                new_url += trantab.get(ch.lower(), ch)
             Products.objects.create(category=line['Категория'],
                                     name=line['Товар'],
                                     model=line['Бренд'],
                                     article=line['Артикул'],
-                                    url=line['Изображения'],
+                                    url=new_url.replace('/','-').replace(' ', '_').replace('(', '').replace(')','').replace('"',''),
                                     anotation=line['Аннотация'],
                                     description=line['Описание'],
                                     price=line['[n]Цена'],
@@ -122,4 +133,9 @@ def new_search(request):
                                     garancy=line['Гарантия мес'],
                                     img_id=line['img_id'])
     # Products.objects.all().delete()
+    # all_pr = Products.objects.all()
+    # for each in all_pr:
+    #     if each.price == 150:
+    #         print(each)
+    #         each.delete()
     return render(request, 'base.html')

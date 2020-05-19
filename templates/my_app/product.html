@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 
 <!--<div class="col-sm-12">-->
@@ -29,10 +29,10 @@
                     <div class="row col-12">
                         <p><i class="material-icons" style="padding-top:7px;  margin-right:2px;">payment</i></p>
                         <div class="row payment-methods" style="margin:5pt;"><p><strong class='payment-methods' style="padding-top:7px;">Банковские карты:   </strong></p></div>
-                        <img src="/static/images/payment/visa.png" style="width:40px; heigth:auto; margin-left:2px;">
-                        <img src="/static/images/payment/mastercard.png" style="width:40px; margin-left:2px;">
-                        <img src="/static/images/payment/maestro.png" style="width:40px; margin-left:2px;">
-                        <img src="/static/images/payment/belcard.svg" style="width:40px; margin-left:2px;">
+                        <img src="{% static 'images/payment/visa.png' %}" style="width:40px; heigth:auto; margin-left:2px;">
+                        <img src="{% static 'images/payment/mastercard.png' %}" style="width:40px; margin-left:2px;">
+                        <img src="{% static 'images/payment/maestro.png' %}" style="width:40px; margin-left:2px;">
+                        <img src="{% static 'images/payment/belcard.svg' %}" style="width:40px; margin-left:2px;">
                     </div>
                     <div class="row col-12"><small>
                     *При оплате в рассрочку или картой рассрочки отменяются действующие скидки.</small>

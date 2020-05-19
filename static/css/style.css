@@ -17,6 +17,8 @@ padding-right:2px!important}
     text-align: center;
     margin-top: 15px;
 }
+.mobile-screen .logo img{
+    margin-top: 0px;}
 
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
 .main-text{
@@ -108,6 +110,10 @@ div .search {
  	display: inline-block;
  	/*padding: 10px 95px 11px 13px;*/
 }
+.mobile-screen div .search {
+margin-top:10px;
+}
+
 #search {
 height: 100%;
 }
@@ -135,6 +141,8 @@ line-height: 3pt!important;
 
 
 /*Main menu*/
+.mobile-screen{
+display:none;}
 
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
 .menu-main {
@@ -450,13 +458,22 @@ tr {
 
 }
  @media (max-width: 576px) {
+
+ .full-screen{
+ display:none;}
+
+ .mobile-screen{
+display:block;}
+
     .menu-main a {
-     font-size: 7px;
-     margin-right: 3px;
-     margin-left:0px;
+     font-size: 12px;
+     margin-right: 4px;
+     margin-left:4px;
      padding: 3px 0 2px
     }
-        .menu-main li:after {content: none;}
+    .menu-main{
+        padding-left: 23px;
+        }
     div .search form {
         height: 15px;
     }

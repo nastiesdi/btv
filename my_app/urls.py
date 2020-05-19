@@ -6,9 +6,9 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    # path('search', views.new_search, name='search'),
+    #path('search', views.new_search, name='search'),
     path('catalog/<str:product>/', views.CatalogListView.as_view(), name='payment'),
-    re_path(r'product/(?P<productid>\d+)/', views.product, name='product'),
+    re_path(r'product/(?P<article>[A-z0-9-_&]+)/', views.product, name='product'),
     path('wrong_field', views.home, name='home'),
     path('main', views.home, name='home'),
     path('new_search', views.new_search, name='new_search'),

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 <!--<div class="row">-->
 <!--  <div class="col-3 col-md-6 img-block">-->
@@ -12,13 +12,13 @@
 <!--</div>-->
 <div class="card-deck">
   <div class="card">
-    <a href="/catalog/refrigerators"><img src="/static/images/refregerator.png" class="card-img-top" alt="..."></a>
+    <a href="/catalog/refrigerators"><img src="{% static 'images/refregerator.png' %}" class="card-img-top" alt="..."></a>
     <div class="card-body">
       <h5 class="card-title">Холодильники</h5>
     </div>
   </div>
   <div class="card">
-    <a href="/catalog/washer"><img src="/static/images/washing.png" class="card-img-top" alt="..."></a>
+    <a href="/catalog/washer"><img src="{% static 'images/washing.png' %}" class="card-img-top" alt="..."></a>
     <div class="card-body">
       <h5 class="card-title">Стиральные машины</h5>
     </div>
@@ -26,13 +26,13 @@
 </div>
 <div class="card-deck">
   <div class="card">
-    <a href="/catalog/tv"><img src="/static/images/tv.png" class="card-img-top" alt="..."></a>
+    <a href="/catalog/tv"><img src="{% static 'images/tv.png' %}" class="card-img-top" alt="..."></a>
     <div class="card-body">
       <h5 class="card-title">Телевизоры</h5>
     </div>
   </div>
     <div class="card">
-      <a href="/catalog/stove"><img src="/static/images/plate.png" class="card-img-top" alt="..."></a>
+      <a href="/catalog/stove"><img src="{% static 'images/plate.png' %}" class="card-img-top" alt="..."></a>
       <div class="card-body">
         <a href="/catalog/"><h5 class="card-title">Варочные панели</h5></a>
       </div>
@@ -40,13 +40,13 @@
 </div>
 <div class="card-deck">
   <div class="card">
-    <a href="/catalog/hods"><img src="/static/images/vit.png" class="card-img-top" alt="..."></a>
+    <a href="/catalog/hods"><img src="{% static 'images/vit.png' %}" class="card-img-top" alt="..."></a>
     <div class="card-body">
       <h5 class="card-title">Вытяжки</h5>
     </div>
   </div>
     <div class="card">
-    <a href="/catalog/ovens"><img src="/static/images/duh.png" class="card-img-top" alt="..."></a>
+    <a href="/catalog/ovens"><img src="{% static 'images/duh.png' %}" class="card-img-top" alt="..."></a>
     <div class="card-body">
       <h5 class="card-title">Духовые шкафы</h5>
     </div>
@@ -54,13 +54,13 @@
 </div>
 <div class="card-deck">
   <div class="card">
-    <a href="/catalog/microwaves"><img src="/static/images/microvine.png" class="card-img-top" alt="..."></a>
+    <a href="/catalog/microwaves"><img src="{% static 'images/microvine.png' %}" class="card-img-top" alt="..."></a>
     <div class="card-body">
       <h5 class="card-title">Микроволновые печи</h5>
     </div>
   </div>
     <div class="card">
-    <a href="/catalog/dishwashers"><img src="/static/images/washing-mashine.png" class="card-img-top" alt="..."></a>
+    <a href="/catalog/dishwashers"><img src="{% static 'images/washing-mashine.png' %}" class="card-img-top" alt="..."></a>
     <div class="card-body">
       <h5 class="card-title">Посудомоечные машины</h5>
     </div>
@@ -68,13 +68,13 @@
 </div>
 <div class="card-deck">
   <div class="card">
-    <a href="/catalog/freezer"><img src="/static/images/refr.png" class="card-img-top" alt="..."></a>
+    <a href="/catalog/freezer"><img src="{% static 'images/refr.png' %}" class="card-img-top" alt="..."></a>
     <div class="card-body">
       <h5 class="card-title">Морозильники</h5>
     </div>
   </div>
     <div class="card">
-    <a href="/catalog/coffeemakers"><img src="/static/images/coffemakers.png" class="card-img-top" alt="..."></a>
+    <a href="/catalog/coffeemakers"><img src="{% static 'images/coffemakers.png' %}" class="card-img-top" alt="..."></a>
     <div class="card-body">
       <h5 class="card-title">Кофемашины</h5>
     </div>

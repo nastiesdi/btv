@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 
 <div id="carousel" class="carousel slide" data-ride="carousel" style="padding-top: 12px; height: auto;">
   <div class="carousel-inner banner">
     <div class="item active">
-      <img src="/static/images/kitchen.jpg" alt="...">
+      <img src="{% static 'images/kitchen.jpg' %}" alt="...">
       <div class="banner-text"><p><Strong>Бытовая техника для дома</Strong></p></div>
       <form action="{% url 'catalog'%}" method="get">
         <button type="submit"  class="btn buy-all">Хочу скупить всё!</button>
@@ -18,19 +18,19 @@
 <br>
 <div class="card-deck">
   <div class="card main-card">
-    <a href="/catalog/refrigerators"><img src="/static/images/refregerator.png" class="card-img-top" alt="/catalog/refrigerators"></a>
+    <a href="/catalog/refrigerators"><img src="{% static 'images/refregerator.png' %}" class="card-img-top" alt="/catalog/refrigerators"></a>
     <div class="card-body">
       <a href="/catalog/refrigerators"><h5 class="card-title">Холодильники</h5></a></li>
     </div>
   </div>
   <div class="card main-card">
-    <a href="/catalog/washer"><img src="/static/images/washing.png" class="card-img-top" alt="..."></a>
+    <a href="/catalog/washer"><img src="{% static 'images/washing.png' %}" class="card-img-top" alt="..."></a>
     <div class="card-body">
       <a href="/catalog/washer"><h5 class="card-title">Стиральные машины</h5></a></li>
     </div>
   </div>
   <div class="card main-card">
-    <a href="/catalog/tv"><img src="/static/images/tv.png" class="card-img-top" alt="..."></a>
+    <a href="/catalog/tv"><img src="{% static 'images/tv.png' %}" class="card-img-top" alt="..."></a>
     <div class="card-body">
       <a href=/catalog/tv><h5 class="card-title">Телевизоры</h5></a></li>
     </div>
