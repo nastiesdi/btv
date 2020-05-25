@@ -83,6 +83,28 @@ input:focus {
     border-bottom:none!important;
 }
 
+ .mobile-screen button.btn.buy-all {
+        font-size: 8px;
+        top: 20%;
+        left: 79%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        background-color: #555;
+        color: white;
+        font-size: 8px;
+        padding: 6px 12px;
+    }
+
+  .mobile-screen .banner-text p{
+        font-size:1.6rem;
+        top: 1rem;
+}
+.mobile-screen .feedback-button {
+    top: 90%!important;
+    left: 25%!important;
+}
+
+
 /*  Dostavka */
 
 .dostavka p{
@@ -194,6 +216,7 @@ display:none;}
 
 /*Left menu*/
 
+
 .left_menu {
 	background:#D3D3D3 linear-gradient(to bottom, 	var(--grey-color) 10%, #ffffff 0%) repeat scroll 0 0;
 	border: 1px solid #d0cfcf;
@@ -238,12 +261,23 @@ border-bottom: None;
 	color:#800000;
 	background : transparent;
 }
+.mobile-screen.left_menu{
+    padding-left: 0px;
+    padding-right: 0px;
+}
 
 button.btn.buy-all.feedback-button{
     top: 80%;
     left: 20%;
 }
 /* main page ///////////////////////////////////////*/
+
+.card-action{
+background:var(--grey-color);
+height: 50px;}
+.my_block{
+padding-right: 0px!important;
+    padding-left: 0px!important;}
 button.btn.buy-all {
     position: absolute;
     top: 10%;
@@ -412,6 +446,11 @@ tr {
 }
 
 @media (max-width: 769px) {
+ .full-screen{
+ display:none;}
+
+ .mobile-screen{
+display:block;}
     .main-text{
         font-size: 15px;
         }
@@ -432,8 +471,7 @@ tr {
     height: 150%;
     width: 13%;
     }
-     .left_menu{
-    display: none;}
+
 
     .full_info td.quhead {
     display: block;
@@ -481,23 +519,8 @@ display:block;}
     div .search {
         height: 25px;}
 
-    button.btn.buy-all {
-        font-size: 8px;
-        top: 20%;
-        left: 70%;
-        transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        background-color: #555;
-        color: white;
-        font-size: 8px;
-        padding: 6px 12px;
-    }
-    .banner-text p{
-        font-size:1.6rem;
-        top: 5rem;
 }
-     .left_menu, .left_block, .contact-info-under-search{
-    display: none!important;}
+
     .pagination a {
     padding: 2px 5px;
     text-decoration: none;
